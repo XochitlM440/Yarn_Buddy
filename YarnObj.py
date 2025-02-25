@@ -11,3 +11,7 @@ class Yarn:
         # if pulling from multiple catalogs/making stuff up, could add a company/manufacturer
 
     def __eq__(self):
+        return (self is other) or (type(self) == type(other) and (
+                    self.name == other.name and self.colors == other.colors and self.fiber == other.fiber
+        and self.weight == other.weight and self.cost == other.cost and self.yardage == other.yardage
+                    and self.tools == other.tools))
