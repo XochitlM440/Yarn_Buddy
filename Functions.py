@@ -1,7 +1,8 @@
-import yarnObj
+import YarnObj
+import catalog
 
 
-def project_picker(ylist:list[yarnObj.Yarn],params:list[str]) -> str:
+def project_picker(ylist:list[YarnObj.Yarn],params:list[str]) -> str:
     # thinking that params could be a list of user inputted parameters
 #   (from the console) that we could search the yarn list for? this is
 #   probably the culmination of other functions tho since we'd need to
@@ -11,11 +12,11 @@ def project_picker(ylist:list[yarnObj.Yarn],params:list[str]) -> str:
 # and a yardage range, should it give you the cheaper one first or the
 # one with more yarn
 
-def price_range(ylist:list[yarnObj.Yarn],low:float,high:float) -> list[yarnObj.Yarn]:
+def price_range(ylist:list[YarnObj.Yarn],low:float,high:float) -> list[YarnObj.Yarn]:
 
-def yardage_range(ylist:list[yarnObj.Yarn], low: float, high: float) -> list[yarnObj.Yarn]:
+def yardage_range(ylist:list[YarnObj.Yarn], low: float, high: float) -> list[YarnObj.Yarn]:
 
-def yarn_specs(ylist:list[yarnObj.Yarn],params:list[str])
+def yarn_specs(ylist:list[YarnObj.Yarn],params:list[str])
     # sim to proj pick but finds yarns that fit params. would extract data from params
 
 def params_builder():

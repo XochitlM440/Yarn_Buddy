@@ -1,8 +1,9 @@
 class Yarn:
-    def __init__(self,name:str,colors:list[str],fiber:str,weight:int,
+    def __init__(self,name:str,colors:list[str],patterns:list[str],fiber:list[str],weight:int,
                  cost:float,yardage:float,tools:dict):
         self.name = name
         self.colors = colors
+        self.patterns = patterns
         self.fiber = fiber
         self.weight = weight
         self.cost = cost
@@ -12,6 +13,6 @@ class Yarn:
 
     def __eq__(self):
         return (self is other) or (type(self) == type(other) and (
-                    self.name == other.name and self.colors == other.colors and self.fiber == other.fiber
+                    self.name == other.name and self.colors == other.colors and self.patterns == other.patterns and self.fiber == other.fiber
         and self.weight == other.weight and self.cost == other.cost and self.yardage == other.yardage
                     and self.tools == other.tools))
