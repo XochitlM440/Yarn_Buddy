@@ -13,20 +13,38 @@ import catalog
 # one with more yarn
 
 # by audrey
-def price_range(ylist:list[YarnObj.Yarn],low:float,high:float) -> list[str]:
-    in_r = []
+def price_range(ylist:list[YarnObj.Yarn],low:float,high:float) -> dict[str]:
+    in_r = {}
     for idx in range(len(ylist)):
         if (ylist[idx].cost >= low) and (ylist[idx].cost <= high):
-            in_r.append(ylist[idx].name)
+            in_r[ylist[idx].name] = ylist[idx].cost
     return in_r
 
 # by audrey
-def yardage_range(ylist:list[YarnObj.Yarn], low: float, high: float) -> list[str]:
-    in_r = []
+def yardage_range(ylist:list[YarnObj.Yarn], low: float, high: float) -> dict[str]:
+    in_r = {}
     for idx in range(len(ylist)):
         if (ylist[idx].yardage >= low) and (ylist[idx].yardage <= high):
-            in_r.append(ylist[idx].name)
+            in_r[ylist[idx].name] = ylist[idx].yardage
     return in_r
+
+#A function that uses the above to find specific yardages within a price range.
+# It takes inputs of the yarn database and an upper and lower limit, and outputs a dictionary
+# of how many of each yarn type could be bought.
+# Eg: you want to know what types of yarn you could buy for less than $50
+# that would get you more than 500 yards, and it would tell you that you could buy 3 blues or 5 reds
+
+#by audrey
+def yarn_quantity(ylist:list[[YarnObj.Yarn]], upperPrice:float,yardLim:float):
+    q = {}
+    for idx in range(len(ylist)):
+        count = upperPrice//ylist[idx].cost
+        cost_tot = count*ylist[idx].cost
+        if count > 0:
+            sum = count*ylist[idx].yardage
+            if sum >= yardLim:
+                q[ylist[idx].name] = str(count) + " for $" + str(cost_tot) + " gets " + str(sum) + " yards"
+    return q
 
 #def yarn_specs(ylist:list[YarnObj.Yarn],params:list[str])
     # sim to proj pick but finds yarns that fit params. would extract data from params
@@ -36,6 +54,6 @@ def yardage_range(ylist:list[YarnObj.Yarn], low: float, high: float) -> list[str
 #   be easier to use in long run but might need a lot of exceptions
 
 def main():
-    a = price_range(catalog.short_cat,6,15)
+    a = yarn_quantity(catalog.short_cat,50,1000)
     print(a)
 main()
