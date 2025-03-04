@@ -1,6 +1,12 @@
 import YarnObj
-#Yarn count:18
 
+short_cat = [YarnObj.Yarn("Pound of Love",["Red","Orange","Yellow","Green","Blue","Purple","Pink","Brown"],
+                            ["Solid","Heather"],["Acrylic"],4,13.99,1020,{"Crochet":"J","Knit":"5.5"}),
+               YarnObj.Yarn("Ferris Wheel",["Ombre"],["Tweed"],["Acrylic"],4,4.99,
+                            270,{"Crochet":"H","Knit":"4.5"}),
+             YarnObj.Yarn("Mandala", ["Multi", "Ombre"], ["Solid"], ["Acrylic"], 3, 8.99,
+                          590, {"Crochet": "H", "Knit": "3.75"})]
+#Yarn count:18
 reduced_cat = [YarnObj.Yarn("Wool-Ease Thick and Quick",["Red","Orange","Yellow","Green","Blue","Purple","Pink",
                 "Black","White","Brown","Gray"],["Solid","Tweed"],["Acrylic","Wool"],6,9.99,106,{"Crochet":"N","Knit":"13"}),
                YarnObj.Yarn("Heartland",["Red","Yellow","Green","Blue","Purple","Pink","White","Brown"],

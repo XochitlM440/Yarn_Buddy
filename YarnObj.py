@@ -16,3 +16,7 @@ class Yarn:
                     self.name == other.name and self.colors == other.colors and self.patterns == other.patterns and self.fiber == other.fiber
         and self.weight == other.weight and self.cost == other.cost and self.yardage == other.yardage
                     and self.tools == other.tools))
+
+    def yard_cost(self):
+        rat = self.yardage/self.cost
+        return rat
