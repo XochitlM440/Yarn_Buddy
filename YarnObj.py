@@ -12,7 +12,7 @@ class Yarn:
         self.tools = tools
         # if pulling from multiple catalogs/making stuff up, could add a company/manufacturer
 
-    def __eq__(self):
+    def __eq__(self, other):
         return (self is other) or (type(self) == type(other) and (
                     self.name == other.name and self.colors == other.colors and self.patterns == other.patterns and self.fiber == other.fiber
         and self.weight == other.weight and self.cost == other.cost and self.yardage == other.yardage
@@ -21,3 +21,14 @@ class Yarn:
     def yard_cost(self):
         rat = self.yardage/self.cost
         return rat
+
+
+class Size:
+    # by xochitl
+    def __init__(self, project: str, yardage: dict):
+        self.project = project
+        self.yardage = yardage
+
+    def __eq__(self, other):
+        return (self is other) or (type(self) == type(other) and
+            (self.project == other.porject and self.yardage == other.yardage))

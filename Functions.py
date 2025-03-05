@@ -7,6 +7,10 @@ import catalog
 #   (from the console) that we could search the yarn list for? this is
 #   probably the culmination of other functions tho since we'd need to
 #   search by price range and yardage range and so forth
+def project_picker():
+    proj = input("Welcome! What kind project are you looking to make today?")
+    if proj in catalog.project_size(YarnObj.Size):  # is this correct?
+
 
 # need to think of what should be prioritized. if we input a price range
 # and a yardage range, should it give you the cheaper one first or the
@@ -27,6 +31,13 @@ def yardage_range(ylist:list[YarnObj.Yarn], low: float, high: float) -> dict[str
         if (ylist[idx].yardage >= low) and (ylist[idx].yardage <= high):
             in_r[ylist[idx].name] = ylist[idx].yardage
     return in_r
+
+def weight_select(type:str):
+    proj = input("Excellent choice, what weight will you use to make your {}".format(type))
+    if proj is int and proj in range(1,7): #correct range?
+
+
+
 
 #A function that uses the above to find specific yardages within a price range.
 # It takes inputs of the yarn database and an upper and lower limit, and outputs a dictionary
