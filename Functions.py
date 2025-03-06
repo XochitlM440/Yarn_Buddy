@@ -6,7 +6,7 @@ import catalog
 # thinking that params could be a list of user inputted parameters
 #   (from the console) that we could search the yarn list for? this is
 #   probably the culmination of other functions tho since we'd need to
-#   search by price range and yardage range and so forth
+#   search by price range and yardage range and so forthh
 
 # This function takes the input of the yarn catalog and a list of user parameters and returns a string of a potential project that
 # they could make.
