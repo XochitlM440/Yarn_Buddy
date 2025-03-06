@@ -75,6 +75,7 @@ def color_select(ylist: list[YarnObj.Yarn], type: str):  #type is the garment th
             counter = 2
         else:
             counter = 0
+            print ("Hi")
 
 
 
