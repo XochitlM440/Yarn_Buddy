@@ -9,7 +9,8 @@ import catalog
 #   search by price range and yardage range and so forth
 def project_picker():
     proj = input("Welcome! What kind project are you looking to make today?")
-    if proj in catalog.project_size(YarnObj.Size):  # is this correct?
+    if proj in catalog.project_size(YarnObj.Size): # is this correct?
+        print ("HI")
 
 
 # need to think of what should be prioritized. if we input a price range
