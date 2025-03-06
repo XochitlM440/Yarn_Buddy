@@ -6,7 +6,7 @@ import catalog
 # thinking that params could be a list of user inputted parameters
 #   (from the console) that we could search the yarn list for? this is
 #   probably the culmination of other functions tho since we'd need to
-#   search by price range and yardage range and so forth
+#   search by price range and yardage range and so forthh
 
 # This function takes the input of the yarn catalog and a list of user parameters and returns a string of a potential project that
 # they could make.
@@ -50,16 +50,37 @@ def yardage_range(ylist:list[YarnObj.Yarn], low: float, high: float) -> dict[str
 # by yarns that are that weight. The function gives an
 # output list of the names of the yarns of that weight
 def weight_select(ylist:list[YarnObj.Yarn],type:str):
-    proj = input("Excellent choice, what weight will you use to make your {}".format(type))
-    if proj is int and proj in range(1,7): #correct range?
+
 
 
 # This function takes the input of a list of yarn objects and a color (string) and filters
 # by yarns that are that weight. The function gives an
 # output list of the names of the yarns of that weight
-def color_select(ylist: list[YarnObj.Yarn], type: str):
-    proj = input("Excellent choice, what weight will you use to make your {}".format(type))
-    if proj is int and proj in range(1, 7):  # correct range?
+#by xochitl
+def color_select(ylist: list[YarnObj.Yarn], type: str):  #type is the garment that they chose at the beginning
+    color_list = []
+    counter = 1
+    while counter > 0:
+        if counter == 1:
+            proj = input("Excellent choice, what color will you use to make your {}".format(type))
+        elif counter > 1:
+            proj = input("Let's try that again, what color will you use to make your {}".format(type))
+        #sort list based on proj
+        for idx in range(len(ylist)):
+            x = ylist[idx].colors
+            if proj in x:
+                color_list.append(ylist[idx])
+        if color_list == []:
+            print("We can't find any yarn with the color {}".format(proj))
+            counter = 2
+        else:
+            counter = 0
+
+
+
+
+
+
 
 
 #by audrey
