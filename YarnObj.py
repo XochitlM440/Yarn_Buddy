@@ -32,3 +32,5 @@ class Size:
     def __eq__(self, other):
         return (self is other) or (type(self) == type(other) and
             (self.project == other.porject and self.yardage == other.yardage))
+
+    print("why me?")
