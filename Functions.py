@@ -57,8 +57,44 @@ def yardage_range(ylist:list[YarnObj.Yarn], low: float, high: float) -> dict[str
 #This function takes the input of a list of yarn objects and a weight (int) and filters
 # by yarns that are that weight. The function gives an
 # output list of the names of the yarns of that weight
-#def weight_select(ylist:list[YarnObj.Yarn],type:str):
+#by xochitl
+def weight_select(ylist:list[YarnObj.Yarn],type:str):
+    weight_list = []
+    counter = 1
+    while counter > 0:
+        if counter == 1:
+            proj = input("Excellent choice, what color will you use to make your {} ".format(type))
+        elif counter > 1:
+            proj = input("Let's try that again, what color will you use to make your {} ".format(type))
+        # sort list based on proj
+        for idx in range(len(ylist)):
+            x = ylist[idx].weight
+            if proj in x:
+                weight_list.append(ylist[idx])
+        if weight_list == []:
+            print("We can't find any yarn with the weight {}".format(proj))
+            counter = 2
+        else:
+            counter = 0
 
+def price_select(ylist:list[YarnObj.Yarn],type:str):
+    price_list = []
+    counter = 1
+    while counter > 0:
+        if counter == 1:
+            proj = input("Excellent choice, what price yarn do you want to use to make your {} ".format(type))
+        elif counter > 1:
+            proj = input("Let's try that again, what price yarn do you want to use to make your {} ".format(type))
+        # sort list based on proj
+        for idx in range(len(ylist)):
+            x = ylist[idx].cost
+            if proj in x:
+                price_list.append(ylist[idx])
+        if price_list == []:
+            print("We can't find any yarn with the color {}".format(proj))
+            counter = 2
+        else:
+            counter = 0
 
 
 # This function takes the input of a list of yarn objects and a color (string) and filters
@@ -83,7 +119,6 @@ def color_select(ylist: list[YarnObj.Yarn], type: str):  #type is the garment th
             counter = 2
         else:
             counter = 0
-            print ("Hi")
 
 #by audrey
 def color_select_yarn_only(ylist: list[YarnObj.Yarn]) -> list[str]:
