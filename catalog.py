@@ -1,4 +1,7 @@
 import YarnObj
+colors = ["Red","Orange","Yellow","Green","Blue","Purple","Pink","Brown","Ombre","Multi"]
+weights = [1,3,4,5,6,7]
+fibers =  ["Acrylic","Cotton","Rayon","Wool","Bamboo","Polyester","Nylon","Alpaca","Merino","Yak","Viscose","Polyamide"]
 
 short_cat = [YarnObj.Yarn("Pound of Love",["Red","Orange","Yellow","Green","Blue","Purple","Pink","Brown"],
                             ["Solid","Heather"],["Acrylic"],4,13.99,1020,{"Crochet":"J","Knit":"5.5"}),
