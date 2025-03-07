@@ -16,10 +16,6 @@ import catalog
     #if proj in catalog.project_size(YarnObj.Size): # is this correct?
 
 
-# need to think of what should be prioritized. if we input a price range
-# and a yardage range, should it give you the cheaper one first or the
-# one with more yarn
-
 # The following range functions filter the yarn catalog by the specified parameters and returns a list of the names
 # of corresponding yarns.
 
@@ -27,7 +23,6 @@ import catalog
 # This function takes the input of a list of yarn objects and an upper and lower price limit (in floats) and filters
 # by yarns that are within that price range. The function gives an
 # output dictionary with keys of the names of the yarns and the definitions of their prices
-
 def price_range(ylist:list[YarnObj.Yarn],low:float,high:float) -> dict[str]:
     in_r = {}
     for idx in range(len(ylist)):
@@ -77,6 +72,7 @@ def weight_select(ylist:list[YarnObj.Yarn],type:str):
         else:
             counter = 0
 
+#by xochitl
 def price_select(ylist:list[YarnObj.Yarn],type:str):
     price_list = []
     counter = 1
