@@ -215,3 +215,18 @@ def yarn_quantity(ylist:list[[YarnObj.Yarn]], upperPrice:float,yardLim:float):
     #a = price_range(catalog.reduced_cat,0,30)
 
 #main()
+
+
+#this will run at the end once we have condensed listed of all the specs the user wants and how
+#to print out the data in a nice way
+def fancy_list (ylist: list[YarnObj.Yarn]):
+    for i in range (len(ylist)):
+        print(ylist[i].name)
+        print ("yarn information")
+        print ("Cost per skein: {}".format(ylist[i].cost))
+        print ("Yardage: {}".format(ylist[i].yardage))
+        print ("Yarn Weight: {}".format(ylist[i].weight))
+        print ("Fiber Content: {}".format(ylist[i].fiber))
+        print ("Available in: {}".format(ylist[i].colors))
+        print ("For crocheting, we recommend using hook {}".format(ylist.[i].tools["Crochet"]))
+        print ("For knitting, we recommend using needle size {}".format(ylist.[i].tools["Knit"]))
