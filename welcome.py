@@ -98,7 +98,7 @@ def main():
                 continue
             if u.lower() == 'esc':
                 y_page = 0  # because setting y_page to 0 terminates the while loop, booting back to start
-        while p_page > 0:
+        while p_page > 0:  #by xochitl
             print("This is the project picker screen! Lets get you a project to work on.")
             print("Here is a list of possible projects to pick from, scarf, socks, shawl, sweater, baby blanket, and afghan.")
             p1 = input ("To pick a project, type it in here:")
