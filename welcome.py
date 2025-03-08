@@ -107,7 +107,7 @@ def main():
                 type = p1.lower()
                 p_select = 1
                 while p_select > 0:
-                    # start project subpages here
+                    # start project subpages here gggg
             else:
                 b = input("looks like that project doesn't exist, check your spelling and try again by typing t:")
                 if b.lower() == 't':

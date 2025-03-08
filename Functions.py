@@ -218,7 +218,7 @@ def yarn_quantity(ylist:list[[YarnObj.Yarn]], upperPrice:float,yardLim:float):
 
 
 #this will run at the end once we have condensed listed of all the specs the user wants and how
-#to print out the data in a nice way
+#to print out the data in a nice way hhh
 #by xochitl
 def fancy_list (ylist: list[YarnObj.Yarn]):
     for i in range (len(ylist)):

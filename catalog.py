@@ -11,7 +11,7 @@ short_cat = [YarnObj.Yarn("Pound of Love",["Red","Orange","Yellow","Green","Blue
              YarnObj.Yarn("Mandala", ["Multi", "Ombre"], ["Solid"], ["Acrylic"], 3, 8.99,
                           590, {"Crochet": "H", "Knit": "3.75"})]
 #Yarn count:18
-# 1st 18 yarns by audrey
+# 1st 18 yarns by audrey ggg
 # rest of yarns by xochitl
 reduced_cat = [YarnObj.Yarn("Wool-Ease Thick and Quick",["Red","Orange","Yellow","Green","Blue","Purple","Pink",
                 "Black","White","Brown","Gray"],["Solid","Tweed"],["Acrylic","Wool"],6,9.99,106,{"Crochet":"N","Knit":"13"}),
