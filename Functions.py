@@ -49,6 +49,23 @@ def yardage_range(ylist:list[YarnObj.Yarn], low: float, high: float) -> dict[str
         print(in_r)
         return in_r
 
+
+#by audrey
+# A function that takes input of yarn catalog to find specific yardages within a price range.
+# It takes inputs of the yarn database and an upper and lower limit, and outputs a dictionary with keys of yarn name
+# and defs of how many you can buy for what price and how many yards it is
+
+def yarn_quantity(ylist:list[[YarnObj.Yarn]], upperPrice:float,yardLim:float):
+    q = {}
+    for idx in range(len(ylist)):
+        count = upperPrice//ylist[idx].cost
+        cost_tot = count*ylist[idx].cost
+        if count > 0:
+            sum = count*ylist[idx].yardage
+            if sum >= yardLim:
+                q[ylist[idx].name] = str(count) + " for $" + str(cost_tot) + ", " + str(sum) + " yards"
+    return q
+
 #This function takes the input of a list of yarn objects and a weight (int) and filters
 # by yarns that are that weight. The function gives an
 # output list of the names of the yarns of that weight
@@ -58,7 +75,7 @@ def weight_select(ylist:list[YarnObj.Yarn],type:str):
     counter = 1
     while counter > 0:
         if counter == 1:
-            proj = input("Excellent choice, what color will you use to make your {} ".format(type))
+            proj = input("What color will you use to make your {} ".format(type))
         elif counter > 1:
             proj = input("Let's try that again, what color will you use to make your {} ".format(type))
         # sort list based on proj
@@ -73,21 +90,35 @@ def weight_select(ylist:list[YarnObj.Yarn],type:str):
             counter = 0
 
 #by xochitl
-def price_select(ylist:list[YarnObj.Yarn],type:str):
-    price_list = []
+def yarn_quantity_with_project(ylist:list[[YarnObj.Yarn]], upperPrice:float, yardLim:str):
+    x= find yardage of of the type they inputted from project size list
+        (yardLim.yardage)
+    q = []
+    for idx in range(len(ylist)):
+        count = upperPrice//ylist[idx].cost
+        cost_tot = count*ylist[idx].cost
+        if count > 0:
+            sum = count*ylist[idx].yardage
+            if (sum >= x):
+                q[ylist[idx].name] = str(count) + " for $" + str(cost_tot) + ", " + str(sum) + " yards"   #change to a list
+    return q
+
+#by xochitl
+def fiber_select(ylist:list[YarnObj.Yarn],type:str):
+    fiber_list = []
     counter = 1
     while counter > 0:
         if counter == 1:
-            proj = input("Excellent choice, what price yarn do you want to use to make your {} ".format(type))
+            proj = input("What color will you use to make your {} ".format(type))
         elif counter > 1:
-            proj = input("Let's try that again, what price yarn do you want to use to make your {} ".format(type))
+            proj = input("Let's try that again, what color will you use to make your {} ".format(type))
         # sort list based on proj
         for idx in range(len(ylist)):
-            x = ylist[idx].cost
+            x = ylist[idx].fiber
             if proj in x:
-                price_list.append(ylist[idx])
-        if price_list == []:
-            print("We can't find any yarn with the color {}".format(proj))
+                fiber_list.append(ylist[idx])
+        if fiber_list == []:
+            print("We can't find any yarn with the weight {}".format(proj))
             counter = 2
         else:
             counter = 0
@@ -102,7 +133,7 @@ def color_select(ylist: list[YarnObj.Yarn], type: str):  #type is the garment th
     counter = 1
     while counter > 0:
         if counter == 1:
-            proj = input("Excellent choice, what color will you use to make your {} ".format(type))
+            proj = input("What color will you use to make your {} ".format(type))
         elif counter > 1:
             proj = input("Let's try that again, what color will you use to make your {} ".format(type))
         #sort list based on proj
@@ -114,7 +145,10 @@ def color_select(ylist: list[YarnObj.Yarn], type: str):  #type is the garment th
             print("We can't find any yarn with the color {}".format(proj))
             counter = 2
         else:
+            print("Here are the yarns that fit your color:")
+            print(color_list)
             counter = 0
+    return color_list
 
 #by audrey
 def color_select_yarn_only(ylist: list[YarnObj.Yarn]) -> list[str]:
@@ -188,22 +222,6 @@ def fiber_select_yarn_only(ylist: list[YarnObj.Yarn]) -> list[str]:
 
 
 
-#by audrey
-# A function that takes input of yarn catalog to find specific yardages within a price range.
-# It takes inputs of the yarn database and an upper and lower limit, and outputs a dictionary with keys of yarn name
-# and defs of how many you can buy for what price and how many yards it is
-
-def yarn_quantity(ylist:list[[YarnObj.Yarn]], upperPrice:float,yardLim:float):
-    q = {}
-    for idx in range(len(ylist)):
-        count = upperPrice//ylist[idx].cost
-        cost_tot = count*ylist[idx].cost
-        if count > 0:
-            sum = count*ylist[idx].yardage
-            if sum >= yardLim:
-                q[ylist[idx].name] = str(count) + " for $" + str(cost_tot) + ", " + str(sum) + " yards"
-    return q
-
 #def yarn_specs(ylist:list[YarnObj.Yarn],params:list[str])
     # sim to proj pick but finds yarns that fit params. would extract data from params
 
@@ -223,7 +241,7 @@ def yarn_quantity(ylist:list[[YarnObj.Yarn]], upperPrice:float,yardLim:float):
 def fancy_list (ylist: list[YarnObj.Yarn]):
     for i in range (len(ylist)):
         print(ylist[i].name)
-        print ("yarn information")
+        print ("Yarn information:")
         print ("Cost per skein: {}".format(ylist[i].cost))
         print ("Yardage: {}".format(ylist[i].yardage))
         print ("Yarn Weight: {}".format(ylist[i].weight))

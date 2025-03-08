@@ -99,15 +99,113 @@ def main():
                 continue
             if u.lower() == 'esc':
                 y_page = 0  # because setting y_page to 0 terminates the while loop, booting back to start
+
+
+
         while p_page > 0:  #by xochitl
+            new_list = catalog.reduced_cat
             print("This is the project picker screen! Lets get you a project to work on.")
             print("Here is a list of possible projects to pick from: hat, scarf, socks, shawl, sweater, baby blanket, and afghan.")
             p1 = input ("To pick a project, type it in here: ")
+
+
             if p1.lower() in catalog.projects:
                 type = p1.lower()
                 p_select = 1
+
                 while p_select > 0:
-                    # start project subpages here gggg
+                    # start project subpages here
+                    while y_select > 0:
+                        u = input("Would you like to filter by color? type y or n. ")
+                        if u.lower() == 'y':
+                            print("Here's a list of available colors:")
+                            print(catalog.colors)
+                            new_list = Functions.color_select(new_list, type)
+
+                            a = input ("Would you like to filter by additional parameters? type y or n. ")
+                            if a.lower() == 'y':
+                                u = "n"
+                            if a.lower() == "n":
+                                new_list = catalog.reduced_cat
+                                u = "n"
+
+
+                        if u.lower() == "n":
+                            u2 = input("Would you like to filter by yarn weight? type y or n. ")
+                        if u2.lower() == "y":
+                            print("Here's a list of available weights:")
+                            print(catalog.weights)
+                            new_list = Functions.weight_select(new_list, type)
+                            a = input ("Would you like to filter by additional parameters? type y or n. ")
+                            if a.lower() == 'y':
+                                u2 = "n"
+                            if a.lower() == "n":
+                                new_list = catalog.reduced_cat
+                                u2 = "n"
+
+
+                        if u2.lower() == "n":
+                            u3 = input("Would you like to filter by yarn fiber? type y or n. ")
+                        if u3.lower() == "y":
+                            print("Here's a list of available fibers:")
+                            print(catalog.fibers)
+                            new_list = Functions.fiber_select(new_list, type)
+                            a = input ("Would you like to filter by additional parameters? type y or n. ")
+                            if a.lower() == 'y':
+                                u3 = "n"
+                            if a.lower() == "n":
+                                new_list = catalog.reduced_cat
+                                u3 = "n"
+
+
+                        if u3.lower() == "n":
+                            u4 = input("Would you like to filter by a price range? type y or n. ")
+                        if u4.lower() == "y":
+                            high = float(input("Please enter an upper price range. "))
+                            new_list = Functions.yarn_quantity_with_project(new_list, high, type)
+                            a = input ("Would you like to filter by additional parameters? type y or n. ")
+                            if a.lower() == 'y':
+                                u4 = "n"
+                            if a.lower() == "n":
+                                new_list = catalog.reduced_cat
+                                u4 = "n"
+
+
+                        if u4.lower() == "n":
+                            u5 = input("Would you like to filter by a yardage range? type y or n. ")
+                        if u5.lower() == "y":
+                            low = float(input(
+                                "Please enter a lower yardage range. If you don't have one, enter 0. "))
+                            high = float(input("Please enter an upper yardage range. "))
+                            new_list = Functions.yardage_range(new_list, low, high)
+                            a = input("Would you like to filter by additional parameters? type y or n. ")
+                            if a.lower() == 'y':
+                                u5 = "n"
+                            if a.lower() == "n":
+                                new_list = catalog.reduced_cat
+                                u5 = "n"
+
+
+                        if u5.lower() == "n":
+                            print("Thanks for using the project picker!")
+                            #start of showing results
+                            a = input ("")
+                            names
+                            or fancy
+                            p = input("To restart, type 'r'. To return to the main menu, type 'esc'. ")
+                            if p == 'r':
+                                y_select = 0
+                            if p == 'esc':
+                                y_page = 0
+                                break  # this is currently not working (it was earlier), setting y_page to 0 should close the
+                                # while loop and boot back to counter, but it's going back to the color select prompt. setting
+                                # a break does work though.
+
+                if u.lower() == 'h':
+                    print("Yarns can be filtered by color, yarn weight, fiber, price, or yardage.")
+                    continue
+                if u.lower() == 'esc':
+                    y_page = 0
             else:
                 b = input("looks like that project doesn't exist, check your spelling and try again by typing t:")
                 if b.lower() == 't':
