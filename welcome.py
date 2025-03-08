@@ -44,13 +44,19 @@ def main():
                           "go back to the main menu, type 'esc'. ")
             if u.lower() == 's':
                 y_select = 1
+                new_list = catalog.reduced_cat
                 while y_select > 0:
                     u = input("Would you like to filter by color? type y or n. ")
                     if u.lower() == 'y':
                         print("Here's a list of available colors:")
                         print(catalog.colors)
-                        Functions.color_select_yarn_only(catalog.reduced_cat)
-                        u = "n"
+                        new_list = Functions.color_select_yarn_only(new_list)
+                        a = input("Would you like to filter this list by additional parameters? Type y or n. ")
+                        if a.lower() == "y":
+                            u = "n"
+                        if a.lower() == "n":
+                            new_list = catalog.reduced_cat
+                            u = "n"
                     if u.lower() == "n":
                         u2 = input("Would you like to filter by yarn weight? type y or n. ")
 
