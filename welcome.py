@@ -5,6 +5,7 @@ from catalog import project_size
 
 
 # counter design works better than the other, use counters for page loops
+# yarn selection pages by audrey
 
 def main():
     counter = 1
@@ -100,19 +101,18 @@ def main():
                 y_page = 0  # because setting y_page to 0 terminates the while loop, booting back to start
         while p_page > 0:  #by xochitl
             print("This is the project picker screen! Lets get you a project to work on.")
-            print("Here is a list of possible projects to pick from, scarf, socks, shawl, sweater, baby blanket, and afghan.")
-            p1 = input ("To pick a project, type it in here:")
-            x = project_size[YarnObj.Size]
-            if p1.lower() in x.project:  #doesn't like the project??????
+            print("Here is a list of possible projects to pick from: hat, scarf, socks, shawl, sweater, baby blanket, and afghan.")
+            p1 = input ("To pick a project, type it in here: ")
+            if p1.lower() in catalog.projects:
                 type = p1.lower()
+                p_select = 1
+                while p_select > 0:
+                    # start project subpages here
             else:
                 b = input("looks like that project doesn't exist, check your spelling and try again by typing t:")
                 if b.lower() == 't':
-                    p_page = 1
-                    break
-                else:
-                    p_page = 0   #how to make it go to the next screen?
-            return type   #is this ok??
+                    p_page = 0
+
 
 
 main()

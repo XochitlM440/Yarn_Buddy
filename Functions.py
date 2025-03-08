@@ -229,5 +229,5 @@ def fancy_list (ylist: list[YarnObj.Yarn]):
         print ("Yarn Weight: {}".format(ylist[i].weight))
         print ("Fiber Content: {}".format(ylist[i].fiber))
         print ("Available in: {}".format(ylist[i].colors))
-        print ("For crocheting, we recommend using hook {}".format(ylist.[i].tools["Crochet"]))
-        print ("For knitting, we recommend using needle size {}".format(ylist.[i].tools["Knit"]))
+        print ("For crocheting, we recommend using hook {}".format(ylist[i].tools["Crochet"]))
+        print ("For knitting, we recommend using needle size {}".format(ylist[i].tools["Knit"]))
