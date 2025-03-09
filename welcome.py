@@ -141,7 +141,8 @@ def main():
                         if u2.lower() == "y":
                             print("Here's a list of available weights:")
                             print(catalog.weights)
-                            new_list = Functions.weight_select(new_list, type)
+                            proj = int(input("What weight will you use to make your {} ".format(type)))
+                            new_list = Functions.weight_select(new_list, type, proj)
                             a = input ("Would you like to filter by additional parameters? type y or n. ")
                             if a.lower() == 'y':
                                 u2 = "n"
@@ -163,41 +164,48 @@ def main():
                                 new_list = catalog.reduced_cat
                                 u3 = "n"
 
-
                         if u3.lower() == "n":
-                            u4 = input("Would you like to filter by a price range? type y or n. ")
-                        if u4.lower() == "y":
-                            high = float(input("Please enter an upper price range. "))
-                            new_list = Functions.yarn_quantity_with_project(new_list, high, type)
-                            a = input ("Would you like to filter by additional parameters? type y or n. ")
-                            if a.lower() == 'y':
-                                u4 = "n"
-                            if a.lower() == "n":
-                                new_list = catalog.reduced_cat
-                                u4 = "n"
-
-
-                        if u4.lower() == "n":
                             u5 = input("Would you like to filter by a yardage range? type y or n. ")
-                        if u5.lower() == "y":
-                            low = float(input(
-                                "Please enter a lower yardage range. If you don't have one, enter 0. "))
-                            high = float(input("Please enter an upper yardage range. "))
-                            new_list = Functions.yardage_range(new_list, low, high)
-                            a = input("Would you like to filter by additional parameters? type y or n. ")
-                            if a.lower() == 'y':
-                                u5 = "n"
-                            if a.lower() == "n":
-                                new_list = catalog.reduced_cat
-                                u5 = "n"
+                            counter = 1
+                            while counter > 0:
+                                if u5.lower() == "y":
+                                        new_list = Functions.price_range_with_project(new_list)
+                                        low = float(input(
+                                            "Please enter a lower yardage range. If you don't have one, enter 0. "))
+                                        high = float(input("Please enter an upper yardage range. "))
+                                        if u.lower() == "y":
+                                            weight = proj
+                                            new_list = Functions.yardage_range_with_project(new_list, low, high, type, weight)
+                                        if u.lower() == ("n"):
+                                            weight = 4
+                                            new_list = Functions.yarn_quantity_with_project(new_list, low, high, type, weight)
 
+                                        if new_list == []:
+                                            a = input ("We couldn't find any yarns that match your parameters, lets try that again.")
+                                            counter = 2
+                                        else:
+                                            counter = 0
+
+
+
+                                a = input("Would you like to filter by additional parameters? type y or n. ")
+                                if a.lower() == 'y':
+                                    u5 = "n"
+                                if a.lower() == "n":
+                                    new_list = catalog.reduced_cat
+                                    u5 = "n"
 
                         if u5.lower() == "n":
                             print("Thanks for using the project picker!")
                             #start of showing results
-                            a = input ("")
-                            names
-                            or fancy
+                            a = input ("If you would like a condensed list of yarns that fit your project, type a. "
+                                       "If you would like to see the details of each yarn, type b.")
+                            if a.lower() == 'a':
+                                print("Here is a condensed list of yarns that fit your project: {}".format(new_list))
+                            if a.lower() == 'b':
+                                print("Here are the yarns that fit your project and the details for each yarn: {}".format(Functions.fancy_list(new_list)))
+
+
                             p = input("To restart, type 'r'. To return to the main menu, type 'esc'. ")
                             if p == 'r':
                                 y_select = 0
