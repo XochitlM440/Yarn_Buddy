@@ -1,6 +1,13 @@
 import YarnObj
 import catalog
 
+def str_to_float(s:str):
+    try:
+        f = float(s)
+        return f
+    except ValueError:
+        return None
+
 
 # The following range functions filter the yarn catalog by the specified parameters and returns a list of the names
 # of corresponding yarns.
@@ -20,6 +27,18 @@ def price_range(ylist:list[YarnObj.Yarn],low:float,high:float) -> dict[str]:
         print(in_r)
         return in_r
 
+def price_range2(ylist:list[YarnObj.Yarn],low:float,high:float) -> dict[str]:
+    in_r = {}
+    in_r2 = []
+    for idx in range(len(ylist)):
+        if (ylist[idx].cost >= low) and (ylist[idx].cost <= high):
+            in_r[ylist[idx].name] = ylist[idx].cost
+            in_r2.append(ylist[idx])
+    if len(in_r) == 0:
+        print("no yarns could be found in that range.")
+    else:
+        print(in_r)
+        return in_r2
 # by audrey
 #This function takes the input of a list of yarn objects and an upper and lower yardage limit (in floats) and filters
 # by yarns that are within that yardage range. The function gives an
@@ -35,6 +54,18 @@ def yardage_range(ylist:list[YarnObj.Yarn], low: float, high: float) -> dict[str
         print(in_r)
         return in_r
 
+def yardage_range2(ylist:list[YarnObj.Yarn], low: float, high: float) -> dict[str]:
+    in_r = {}
+    in_r2 = []
+    for idx in range(len(ylist)):
+        if (ylist[idx].yardage >= low) and (ylist[idx].yardage <= high):
+            in_r[ylist[idx].name] = ylist[idx].yardage
+            in_r2.append(ylist[idx])
+    if len(in_r) == 0:
+        print("no yarns could be found in that range.")
+    else:
+        print(in_r)
+        return in_r2
 #by xochitl
 def yardage_range_with_project(ylist:list[YarnObj.Yarn], low:float, high:float, type:str, w:int):
     for i in range(len(catalog.project_size)):
