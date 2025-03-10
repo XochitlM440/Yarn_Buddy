@@ -24,7 +24,15 @@ def main():
                       "To see a more detailed list of available functions, type 'h'. ")
         if a.lower() == 'h':
             print("This is the help menu! Here's a list of our available functions.")
-            counter = 2
+            print("On the Yarn Picker screens you can filter our yarn catalog by color, yarn weight, yarn fiber,")
+            print("yarn price range, or yarn yardage range. You can start apply all of these filters to a single")
+            print("list or start with a new search of the catalog each time.")
+            print("\n On the Project Picker screen you can select a project to make, and then filter the yarn catalog")
+            print("by the same parameters. You will get an output of how many skeins of a type of yarn that you would")
+            print("need to buy to complete your chosen project.")
+            a2 = input("To return to the menu, type 'r'. ")
+            if a2.lower() == 'r':
+                counter = 2
         elif a.lower() == 'y':
             # sends you to the yarn selection subloops
             y_page = 1
@@ -297,9 +305,7 @@ def main():
                                 y_select = 0
                             if p == 'esc':
                                 y_page = 0
-                                break  # this is currently not working (it was earlier), setting y_page to 0 should close the
-                                # while loop and boot back to counter, but it's going back to the color select prompt. setting
-                                # a break does work though.
+                                break  
 
                 if u.lower() == 'h':
                     print("Yarns can be filtered by color, yarn weight, fiber, price, or yardage.")

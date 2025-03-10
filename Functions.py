@@ -290,13 +290,6 @@ def fiber_select_yarn_only(ylist: list[YarnObj.Yarn]) -> list[str]:
             print(fiber_list)
     return fiber_list_full
 
-# by audrey
-def yarn_avg_cost(ylist:list[YarnObj.Yarn]) -> float:
-    sum = 0
-    for idx in range(len(ylist)):
-        sum = sum + ylist[idx].yard_cost()
-    avg = sum/(len(ylist))
-    return avg
 
 # by audrey
 def get_size(slist:list[YarnObj.Size],type:str,weight:int) -> list[int]:

@@ -2,7 +2,7 @@ import Functions
 import unittest
 import catalog
 
-# price range, yardage range, yarn quantity
+# tests by audrey
 class TestCases(unittest.TestCase):
     def test_price_range1(self):
         input1 = 0
@@ -46,4 +46,18 @@ class TestCases(unittest.TestCase):
         input2 = 900
         expected = {"Pound of Love": '1.0 for $13.99, 1020.0 yards'}
         result = Functions.yarn_quantity(catalog.reduced_cat,input1,input2)
+        self.assertEqual(expected,result)
+
+    def test_get_size1(self):
+        input1 = "shawl"
+        input2 = 5
+        expected = [350,500]
+        result = Functions.get_size(catalog.project_size,input1,input2)
+        self.assertEqual(expected,result)
+
+    def test_get_size2(self):
+        input1 = "afghan"
+        input2 = 2
+        expected = [3500,3750]
+        result = Functions.get_size(catalog.project_size,input1,input2)
         self.assertEqual(expected,result)
