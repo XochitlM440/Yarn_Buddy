@@ -1,5 +1,5 @@
 class Yarn:
-    # by audrey (most)
+    # by audrey
     def __init__(self,name:str,colors:list[str],patterns:list[str],fiber:list[str],weight:int,
                  cost:float,yardage:float,tools:dict):
         self.name = name

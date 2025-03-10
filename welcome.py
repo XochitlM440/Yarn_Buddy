@@ -6,11 +6,14 @@ from catalog import project_size
 
 # counter design works better than the other, use counters for page loops
 # yarn selection pages by audrey
+# project + yarn selection pages by xochitl
 
 def main():
     counter = 1
     y_page = 0
     p_page = 0
+
+
     while counter > 0:
         if counter == 1:
             print("Welcome to Yarn Buddy! This program is run entirely from the command line.")
@@ -31,6 +34,8 @@ def main():
             print("by the same parameters. You will get an output of how many skeins of a type of yarn that you would")
             print("need to buy to complete your chosen project.")
             a2 = input("To return to the menu, type 'r'. ")
+
+
             if a2.lower() == 'r':
                 counter = 2
         elif a.lower() == 'y':
@@ -50,7 +55,9 @@ def main():
                     "a yardage range, or color. ")
                 u = input("To start, type 's'. To see a full list of filtering parameters, type 'h'. To "
                           "go back to the main menu, type 'esc' at any time. ")
-            # displayed after visting the help page
+
+
+            # displayed after visiting the help page
             elif y_page > 2:
                 print(
                     "This is the yarn picker screen! Here you can find yarns by various preferences such as a price range,"
@@ -63,6 +70,7 @@ def main():
                 y_select = 1
                 new_list = catalog.reduced_cat
                 while y_select > 0:
+                    #filtering by color
                     u = input("Would you like to filter by color? type y or n. ")
                     if u.lower() == 'y':
                         print("Here's a list of available colors:")
@@ -85,6 +93,7 @@ def main():
                         y_page = 0
                         break
 
+                    #sorting by weight
                     if u2.lower() == "y":
                         print("Here's a list of available weights:")
                         print(catalog.weights)
@@ -101,12 +110,12 @@ def main():
                             y_page = 0
                             break
 
+                    #sorting by fiber content
                     if u2.lower() == "n":
                         u3 = input("Would you like to filter by yarn fiber? type y or n. ")
                     if u2.lower() == 'esc':
                         y_page = 0
                         break
-
                     if u3.lower() == "y":
                         print("Here's a list of available fibers:")
                         print(catalog.fibers)
@@ -123,6 +132,7 @@ def main():
                             y_page = 0
                             break
 
+                    #sorting by cost
                     if u3.lower() == "n":
                         u4 = input("Would you like to filter by a cost range? type y or n. ")
                     if u3.lower() == 'esc':
@@ -144,6 +154,8 @@ def main():
                         if a.lower() == 'esc':
                             y_page = 0
                             break
+
+                    #sorting by yardage
                     if u4.lower() == "n":
                         u5 = input("Would you like to filter by a yardage range? type y or n. ")
                     if u4.lower() == 'esc':
@@ -159,6 +171,7 @@ def main():
                         y_page = 0
                         break
 
+                    #end screen
                     if u5.lower() == "n":
                         print("Thanks for using the yarn picker!")
                         p = input("To restart, type 'r'. To return to the main menu, type 'esc'. ")
@@ -177,8 +190,8 @@ def main():
                 y_page = 0  # because setting y_page to 0 terminates the while loop, booting back to start
 
 
-
-        while p_page > 0:  #by xochitl
+        # by xochitl
+        while p_page > 0:
             y_page = 0 # closes other section just in case they've navigated from there (or else it would continue to boot them back when the while loop closes)
             y_select = 0
             new_list = catalog.reduced_cat
@@ -199,6 +212,8 @@ def main():
                     # start project subpages here
                     proj = 4
                     while p_select > 0:
+
+                        #sorting by color
                         u = input("Would you like to filter by color? type y or n. ")
                         if u.lower() == 'esc': # currently doesn't  work, just re-displays the color select
                             p_page = 0
@@ -219,10 +234,9 @@ def main():
                                 p_page = 0
                                 break
 
+                        #sorting by weight
                         if u.lower() == "n":
                             u2 = input("Would you like to filter by yarn weight? type y or n. ")
-
-
                         if u2.lower() == "y":
                             print("Here's a list of available weights:")
                             print(catalog.weights)
@@ -240,12 +254,12 @@ def main():
                                 p_page = 0
                                 break
 
+                        #sorting by fiber
                         if u2.lower() == "n":
                             u3 = input("Would you like to filter by yarn fiber? type y or n. ")
                         if u2.lower() == 'esc':
                             p_page = 0
                             break
-
                         if u3.lower() == "y":
                             print("Here's a list of available fibers:")
                             print(catalog.fibers)
@@ -261,6 +275,7 @@ def main():
                             if a.lower() == 'esc':
                                 p_page = 0
                                 break
+
                     # we don't actually need a yardage range prompt because the project selection itself is acting as the limiting range
                         if u3.lower() == "n":
                             u4 = input("Would you like to set a budget for your project? type y or n. ")
@@ -283,7 +298,6 @@ def main():
                             if u4 == "esc":
                                 p_page = 0
                                 break
-
                         if u3.lower() == 'esc':
                             p_page = 0
                             break
